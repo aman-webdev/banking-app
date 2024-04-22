@@ -26,6 +26,9 @@ importers:
       '@repo/db':
         specifier: workspace:*
         version: link:../../packages/db
+      '@repo/store':
+        specifier: workspace:*
+        version: link:../../packages/store
       '@repo/ui':
         specifier: workspace:*
         version: link:../../packages/ui
@@ -38,6 +41,9 @@ importers:
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+      recoil:
+        specifier: ^0.7.7
+        version: 0.7.7(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@next/eslint-plugin-next':
         specifier: ^14.1.1
@@ -109,6 +115,12 @@ importers:
       typescript:
         specifier: ^5.3.3
         version: 5.3.3
+
+  packages/store:
+    dependencies:
+      recoil:
+        specifier: ^0.7.7
+        version: 0.7.7(react-dom@18.2.0)(react@18.2.0)
 
   packages/typescript-config: {}
 
@@ -2145,7 +2157,7 @@ packages:
       debug: 4.3.4
       enhanced-resolve: 5.15.0
       eslint: 8.57.0
-      eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.17.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
+      eslint-module-utils: 2.8.0(@typescript-eslint/parser@6.17.0)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0)
       eslint-plugin-import: 2.29.0(@typescript-eslint/parser@7.1.0)(eslint@8.57.0)
       fast-glob: 3.3.1
       get-tsconfig: 4.7.2
@@ -2158,7 +2170,7 @@ packages:
       - supports-color
     dev: true
 
-  /eslint-module-utils@2.8.0(@typescript-eslint/parser@6.17.0)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0):
+  /eslint-module-utils@2.8.0(@typescript-eslint/parser@6.17.0)(eslint-import-resolver-node@0.3.9)(eslint-import-resolver-typescript@3.6.1)(eslint@8.57.0):
     resolution: {integrity: sha512-aWajIYfsqCKRDgUfjEXNN/JlrzauMuSEy5sbd7WXbtW3EH6A6MpwEh42c7qD+MqQo9QMJ6fWLAeIJynx0g6OAw==}
     engines: {node: '>=4'}
     peerDependencies:
@@ -2182,6 +2194,7 @@ packages:
       '@typescript-eslint/parser': 6.17.0(eslint@8.57.0)(typescript@5.3.3)
       debug: 3.2.7
       eslint: 8.57.0
+      eslint-import-resolver-node: 0.3.9
       eslint-import-resolver-typescript: 3.6.1(@typescript-eslint/parser@6.17.0)(eslint-plugin-import@2.29.0)(eslint@8.57.0)
     transitivePeerDependencies:
       - supports-color
@@ -2878,6 +2891,10 @@ packages:
   /graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
     dev: true
+
+  /hamt_plus@1.0.2:
+    resolution: {integrity: sha512-t2JXKaehnMb9paaYA7J0BX8QQAY8lwfQ9Gjf4pg/mk4krt+cmwmU652HOoWonf+7+EQV97ARPMhhVgU1ra2GhA==}
+    dev: false
 
   /handlebars@4.7.8:
     resolution: {integrity: sha512-vafaFqs8MZkRrSX7sFVUdo3ap/eNiLnb4IakshzvP56X5Nr1iGKAIqdX6tMlm6HcNRIkr6AxO5jFEoJzzpT8aQ==}
@@ -4274,6 +4291,23 @@ packages:
     dependencies:
       picomatch: 2.3.1
     dev: true
+
+  /recoil@0.7.7(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-8Og5KPQW9LwC577Vc7Ug2P0vQshkv1y3zG3tSSkWMqkWSwHmE+by06L8JtnGocjW6gcCvfwB3YtrJG6/tWivNQ==}
+    peerDependencies:
+      react: '>=16.13.1'
+      react-dom: '*'
+      react-native: '*'
+    peerDependenciesMeta:
+      react-dom:
+        optional: true
+      react-native:
+        optional: true
+    dependencies:
+      hamt_plus: 1.0.2
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /reflect.getprototypeof@1.0.4:
     resolution: {integrity: sha512-ECkTw8TmJwW60lOTR+ZkODISW6RQ8+2CL3COqtiJKLd6MmB45hN51HprHFziKLGkAuTGQhBb91V8cy+KHlaCjw==}

@@ -3,6 +3,9 @@ import { Card } from "@repo/ui/card";
 import { Code } from "@repo/ui/code";
 import styles from "./page.module.css";
 import { Button } from "@repo/ui/button";
+import useBalance from "@repo/store/useBalance"
+import Balance from "../components/Balance";
+
 function Gradient({
   conic,
   className,
@@ -53,7 +56,7 @@ const LINKS = [
 export default function Page(): JSX.Element {
   return (
     <main className='bg-yellow-50'>
-     koko
+      <Balance/>
     </main>
   );
 }
